@@ -1,0 +1,60 @@
+﻿@using BookLib.ViewModel
+@model BookFormVM
+@section Title {
+Books
+}
+@section subTitle {
+Create
+}
+
+<form asp-controller="Books" asp-action="Create" enctype="multipart/form-data">
+    <div class="card-body">
+        <div class="mb-3 form-group">
+            <label asp-for="Title" class="form-label"> </label>
+            <input type="text" class="form-control" asp-for="Title" >
+            <span asp-validation-for="Title" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="AuthorId" class="form-label"> </label>
+            <select asp-for="AuthorId" class="form-control" asp-items="@Model.Authors"></select>
+            <span asp-validation-for="AuthorId" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Publisher" class="form-label"> </label>
+            <input type="text" asp-for="Publisher" class="form-control" />
+            <span asp-validation-for="Publisher" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="PublishDate" class="form-label"></label>
+            <input type="date" asp-for="PublishDate" class="form-control" />
+            <span asp-validation-for="PublishDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageURL" class="form-label"></label>
+            <input type="file" asp-for="ImageURL" class="form-control" />
+            <span asp-validation-for="ImageURL" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="selectedCategories" class="form-label"> </label>
+            <select asp-for="selectedCategories" class="form-control" asp-items="@Model.Categories"></select>
+            <span asp-validation-for="selectedCategories" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="form-label"> </label>
+            <textarea asp-for="Description" class="form-control" ></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">
+           Add
+        </button>
+
+    </div>
+</form>
+
